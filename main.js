@@ -21,8 +21,8 @@ console.log(sumArrow(3, 4));
 // Crea una arrow function che calcola il quadrato di un numero.
 // Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.
 
-const double = (num) => num * num;
-console.log(double(3));
+const quadrato = (num) => num * num;
+console.log(quadrato(3));
 
 // Snack 3
 // Crea una funzione eseguiOperazione
@@ -69,3 +69,39 @@ setTimeout(() => {
     console.log("Intervallo interrotto!");
 }, 5000);
 
+// Snack 6
+// Crea un contatore automatico con setInterval
+// Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
+
+function creaContatoreAutomatico(intervallo) {
+    let contatore = 0;
+    return () => {
+        setInterval(() => {
+            count++;
+            console.log(`Il valore del contatore è di ${contatore}`);
+        }, intervallo)
+    }
+}
+
+const contatore1 = creaContatoreAutomatico(1000);
+
+console.log(contatore1());
+
+// Snack 7
+// Crea una funzione che ferma un timer dopo un certo tempo
+// Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop.Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.
+
+function eseguiEferma(messaggio, intervallo, stopTime) {
+    const idIntervallo = setInterval(() => {
+        console.log(messaggio);
+    }, intervallo);
+    setTimeout(() => {
+        clearInterval(idIntervallo)
+    }, durata);
+}
+
+console.log(eseguiEferma("In esecuzione...", 1000, 4000));
+
+// Snack 8(Bonus)
+// Crea una funzione che simula un conto alla rovescia
+// Scrivi una funzione contoAllaRovescia che accetta un numero n e stampa il conto alla rovescia da n a 0, con un intervallo di 1 secondo tra ogni numero.Quando arriva a 0, stampa "Tempo scaduto!" e interrompe il timer.
